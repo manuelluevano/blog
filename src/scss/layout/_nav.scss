@@ -1,0 +1,28 @@
+nav{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    gap: 2rem;
+    text-align: center;
+    background-color: #212529;
+    padding: 2rem;
+    .enlaces{
+        display: grid;
+        grid-template-columns: repeat(12,1fr);
+        a{
+            font-size: 1.6rem;
+            color: white;
+        }
+        :hover{
+            color: rgb(207, 207, 2);
+        }
+    }
+    .login{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        a{
+            font-size: 1.8rem;
+            color: white;
+
+        }
+    }
+}
