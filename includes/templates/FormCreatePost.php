@@ -1,31 +1,40 @@
 <?php
 include_once("../../includes/templates/header.php");
+
+//  incluir la conexion a la base de datos 
+require "../config/databases.php";
+$db = conectarDB();
+
+// var_dump($db);
+
 ?>
 
 <body>
 
-  <form action="" method="POST" enctype="multipart/form-data">
-    <label for="">Ingresar Tema</label>
-    <input type="text">
-    <textarea name="" id="" cols="30" rows="10" placeholder="Informacion acerca del tema"></textarea>
+  <form action="" method="POST" enctype="multipart/form-data" class=" padding">
 
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Archivos</label>
-      <div class="col-sm-8">
-        <input type="file" class="form-control" id="archivo[]" name="archivo[]" multiple="">
-      </div>
+    <label for="">Tema:</label>
+    <input type="text" name="tema" id="tema" class="">
 
-      <button type="submit" class="btn btn-primary">Cargar</button>
+    <label for="">Descripcion:</label>
+    <textarea name="descripcion" id="descripcion" cols="30" rows="10" class=""></textarea>
+
+    <div class="files">
+
+      <label for="">Documentos:</label>
+      <input type="file" class="" id="archivo[]" name="archivo[]" multiple="">
+
+
+      <label for="">Imagenes:</label>
+      <input type="file" class="" id="archivo[]" name="archivo[]" multiple="">
+
     </div>
 
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Imagenes</label>
-      <div class="col-sm-8">
-        <input type="file" class="form-control" id="archivo[]" name="archivo[]" multiple="">
-      </div>
+    <label for="">Fecha de Envio</label>
+    <input type="text" disabled value="20/04/1999">
 
-      <button type="submit" class="btn btn-primary">Cargar</button>
-    </div>
+    <input type="submit" value="Enviar Datos" class="btn">
+
 
   </form>
 
