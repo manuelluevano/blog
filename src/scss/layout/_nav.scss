@@ -1,6 +1,6 @@
 nav{
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 75% 20% 0%;
     gap: 2rem;
     text-align: center;
     background-color: #212529;
@@ -8,12 +8,17 @@ nav{
     .enlaces{
         display: grid;
         grid-template-columns: repeat(12,1fr);
+        
         a{
             font-size: 1.6rem;
-            color: white;
+            color: rgb(200, 200, 200);
+            border-bottom: 1px solid transparent;
+            margin-bottom: -1.5rem;
         }
         :hover{
-            color: rgb(207, 207, 2);
+            color: white;
+            border-bottom: 1.5px solid rgb(255, 255, 255);
+            transition: all ease-out .2s;
         }
     }
     .login{
@@ -25,4 +30,15 @@ nav{
 
         }
     }
+    .menu{
+        color: white;
+        font-size: 2rem;
+        #check{
+            // display: none;
+        }
+        .checkbtn{
+            // display: none;
+        }
+    }
 }
+
