@@ -1,9 +1,22 @@
 <?php
 include_once("includes/templates/header.php");
+
+
+$resultado = $_GET['resultado'] ?? '';
+
 ?>
 
 <main>
-  <p>main</p>
+
+
+  <?php
+  if ($resultado === '1') : ?>
+    <div class="mensaje">
+      <p>Registro insertado correctamente</p>
+    </div>
+  <?php endif; ?>
+
+
 </main>
 
 <?php

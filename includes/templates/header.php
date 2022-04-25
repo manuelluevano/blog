@@ -35,12 +35,12 @@
                     <a href="">Avatar</a>
                 </div>
             </div>
-            <div class="menu">
+            <!-- <div class="menu">
                 <input type="checkbox" id="check">
                 <label for="check" class="checkbtn">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </label>
-            </div>
+            </div> -->
         </nav>
     </header>
     <script src="https://kit.fontawesome.com/04730c9c8a.js" crossorigin="anonymous"></script>

@@ -1,4 +1,4 @@
-<footer>
+<footer class="contenedor">
     <p>Todos los derechos reservados &copy;</p>
 </footer>
 

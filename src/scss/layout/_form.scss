@@ -2,7 +2,8 @@ form{
     max-width: 50%;
     margin: 0 auto;
     fieldset{
-        border: 1px solid rgb(218, 218, 218);
+        -webkit-box-shadow: 1px 1px 15px 3px rgba(0,0,0,0.46); 
+        box-shadow: 1px 1px 15px 3px rgba(0,0,0,0.46);        
         padding: 2rem;
     }
     label{
@@ -12,14 +13,14 @@ form{
         width: 100%;
         margin: .7rem 0;
         font-size: 2rem;
-        border: 1px solid #d5d5d5;
+        border: 1px solid #817f7f;
         border-radius: 5px;
 
     }
     textarea{
         margin: .7rem 0;
         font-size: 2rem;
-        border: 1px solid #d5d5d5;
+        border: 1px solid #817f7f;
         width: 100%;
 
     }

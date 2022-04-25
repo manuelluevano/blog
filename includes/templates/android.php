@@ -4,16 +4,16 @@ include_once("../../includes/templates/header.php");
 
 <body>
 
-  <h2>Todo acerca de Android</h2>
-  <a href="">Ir a Temas</a>
-  <a class="btn" href="FormCreatePost.php">Crear Tema</a>
+  <div class="contenedor">
 
-  <audio controls="controls" class="container cover coverLarge gradient">
-    <img src="../../src/img/a.jpg" alt="">
-    <source src="track.ogg" type="audio/ogg" />
-    <source src="track.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
+    <h2 ">Todo acerca de Android</h2>
+    <a class=" btn" href="AndroidTemas.php">Ir a Temas</a>
+      <a class="btn" href="FormCreatePost.php">Crear Tema</a>
+
+
+  </div>
+
+
   <!-- traer imagen minimizada -->
   <!-- <picture>
       <source

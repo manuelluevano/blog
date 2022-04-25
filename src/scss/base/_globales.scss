@@ -55,10 +55,21 @@ h4 {
     margin: 0 auto;
     max-width: 50%;
     text-align: center;
-    background-color: rgb(255, 85, 85);
-    color: white;
+    background-color: #F8D7D9;
+    color: #721C24;
     padding: .5rem 0;
     font-size: 2rem;
     margin-bottom: 1rem;
     border-radius: 5px;
+}
+
+.mensaje{
+    background-color: #CDE5FE;
+    color: #004184;
+    padding: 2rem;
+    text-align: center;
+    max-width: 50%;
+    margin: 0 auto;
+    font-size: 2rem;
+    border-radius: 1rem;
 }
