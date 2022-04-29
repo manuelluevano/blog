@@ -1,0 +1,68 @@
+BASES DE DATOS - RELACIONES
+
+cardinalidad 1 a 1 
+	persona1 'tiene' 1 dato_de_contacto = valor 1:1
+	
+	REPRESENTACION GRAFICA:
+	--I----------------------I O --II---------------------II--   ojo: linea continua
+
+cardinalidad 0 a 1 
+	 inicio_sesion ´tiene´ usuario = valor 0:1 (puede que no este logeado, pero si existe un usuario)
+	
+	REPRESENTACION GRAFICA:
+	-I---------I OJO: lineas punteadas
+
+cardinalidad 1 a N (o a muchos)
+	persona ¨tiene¨ automovil = 1 a (puede tener varios autos)
+
+	REPRESENTACION GRAFICA
+	--I-----------o< o --I----------< O --II--------I-<
+
+CARDINALIDAD 0 A N (muchos)
+	PACIENTE ´TIENE´ HABITACION_HOSPITAL = 0:N
+	puede que no haya pacientes y muchas habitaciones esperando...
+
+	REPRESENTACION GRAFICA
+	--Io------------I-< o --I------I<
+
+
+
+
+CARDINALIDAD N:N - MUCHOS A MUCHOS
+	alumno ´pertenece´ clase 
+	en esat cardinalidad, es dificil ver quien es quien, si alumnos tiene muchas clases o
+	clase tiene muchos alumnos
+
+	REPRESENTACION GRAFICA
+	>-----------<
+	>-I----------I-<
+
+
+DIAGRAMA ER
+https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model#Cardinalities
+
+
+TIPOS DE DATOS
+
+Es importante saber que tipo de dato vamos a utilizar en nuestra base de datos, e identificar el dato
+mas preciso para que la base de datos sea mas eficiente.
+
+
+texto - char/varchar/text
+numeros - integer/bigint/smallint/decimal/numeric
+fecha/hora - date/time/datetime/timestamp
+logicos - boolean
+
+
+
+
+
+CONSTRAINTS (RESTRICCIONES)
+
+NOT NULL - Se asegura que la columna no tenga valores nulos
+UNIQUE - cada valor de la columna no se debe repetir
+PRIMARY KEY - es una combinacion de NOT NULL y UNIQUE
+FOREIGN KEY - identifica de manera unica una tupla en otra tabla (llave foranea que une la primary key de una tabla a otra)
+CHECK - el valor en la columna cumpla una condicion dada
+DEFAULT - coloca un valor por defecto cuando no hay un valor especifico
+INDEX - se crea por la clumna para permitir busquedas mas rapidas.

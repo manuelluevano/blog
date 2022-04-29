@@ -1,0 +1,17 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\froman\fcharset0 Times-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c93333;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Pasados dos a\'f1os de la publicaci\'f3n de la especificaci\'f3n oficial del est\'e1ndar de {\field{\*\fldinst{HYPERLINK "https://hipertextual.com/2018/02/ufs-3-0-2"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 memorias UFS 3.0}}, {\field{\*\fldinst{HYPERLINK "https://www.jedec.org/news/pressreleases/jedec-publishes-update-universal-flash-storage-ufs-standard"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 la JEDEC publica}} ahora su primera actualizaci\'f3n, con algunas mejoras en sus capacidades t\'e9cnicas. 
+\f1\b UFS 3.1
+\f0\b0  llega como un nuevo horizonte al que aspirar mientras el est\'e1ndar m\'e1s reciente termina de implantarse.\
+\
+Mucho m\'e1s r\'e1pido que los anteriores est\'e1ndares eMMC, las memorias Universal Flash Storage vienen utiliz\'e1ndose desde que en 2015 pisara la calle el est\'e1ndar UFS 2.0. Ahora la organizaci\'f3n de especificaciones de tecnolog\'eda de estado s\'f3lido, formada por m\'e1s de 300 empresas del sector, anuncia las 
+\f1\b mejoras del nuevo est\'e1ndar UFS 3.1
+\f0\b0 , que llega con un nuevo complemento opcional para la mejora del rendimiento.\
+}

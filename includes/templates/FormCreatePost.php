@@ -2,7 +2,7 @@
 include_once("../../includes/templates/header.php");
 
 //  incluir la conexion a la base de datos 
-require "../config/databases.php";
+require "../config/database.php";
 $db = conectarDB();
 
 // var_dump($db);
@@ -19,7 +19,7 @@ $tema = '';
 $descripcion = '';
 // Obteniendo la fecha actual con hora, minutos y segundos en PHP
 $fecha = date('Y-m-d');
-
+$seccion = '';
 
 
 
@@ -35,8 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-  $archivo = $_FILES['archivo'];
+  // $archivo = $_FILES['archivo']['tmp_name'];
   $imagen = $_FILES['imagen'];
+  $archivo = $_FILES['archivo'];
+
 
 
   echo "<pre>";
@@ -44,13 +46,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   echo "</pre>";
 
 
+  echo "<pre>";
+  var_dump($imagen);
+  echo "</pre>";
+
 
   //validar formualrio
   if (!$tema) {
-    $errores[] = "El tema es obligatorio";
+    $errores[] = "Tema obligatorio";
   }
   if (!$descripcion) {
-    $errores[] = "la descripcion es obligatoria";
+    $errores[] = "Descripcion obligatoria";
   }
 
 
@@ -61,35 +67,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // SUBIDA DE ARCHIVOS
 
-    // CREAR CARPETA PARA GUARDAR ARCHIVOS
+    // CREAR CARPETA PARA GUARDAR IMAGENES
     $carpetaImagenes = '../../imagenes/';
+    // CREAR CARPETA PARA GUARDAR IMAGENES
+    $carpetaDocumentos = '../../documentos/';
 
     if (!is_dir($carpetaImagenes)) {
       mkdir($carpetaImagenes);
     }
 
+    if (!is_dir($carpetaDocumentos)) {
+      mkdir($carpetaDocumentos);
+    }
     // RECORRER EL ARRAY 'tmp_name' PARA GUARDAR TODOS LOS ARCHIVOS
 
 
     // GENERAR UN NOMBRE UNICO A LAS IMAGENES
-    $nombreImagen = md5(uniqid(rand(), true));
+    $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+
+
 
     var_dump($nombreImagen);
 
+
+
     // SUBIR LA IMAGEN
-    move_uploaded_file($archivo['tmp_name'], $carpetaImagenes . $nombreImagen . '.jpg');
+    move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
+
+    // SUBIR EL DOCUMENTO
+    move_uploaded_file($archivo['tmp_name'], $carpetaDocumentos . $archivo['name']);
+
+    $nombreDocumento = $archivo['name'];
 
 
+    //  INSETAR EN LA BASE DE DATOS LA INFORMACION
+    $query = "INSERT INTO info (tema, descripcion, fecha, seccion) VALUES ('$tema', '$descripcion','$fecha', '$seccion')";
 
-    // insertar en la base de datos
-    $query = "INSERT INTO android (tema, descripcion, fecha) VALUES ('$tema', '$descripcion','$fecha')";
+    // INSERTAR A LA BASE DE DATOS LOS DOCUENTOS
+    $queryDocumentos = "INSERT INTO documentos (documento) VALUES ('$nombreDocumento')";
+    // INSERTAR A LA BASE DE DATOS LAS IMAGENES
+    $queryImagenes = "INSERT INTO imagenes (imagen) VALUES ('$nombreImagen')";
+
 
     // probar el query
-    echo $query;
+    // echo $query;
+
+    // echo $queryImagenes;
+
 
     $resultado = mysqli_query($db, $query);
+    $resultadoDocumentos = mysqli_query($db, $queryDocumentos);
+    $resultadoImagenes = mysqli_query($db, $queryImagenes);
 
-    if ($resultado) {
+    // exit;
+
+
+    if ($resultado && $resultadoImagenes && $resultadoDocumentos) {
 
 
       // redireccionar
@@ -117,6 +150,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <fieldset>
 
+      <h3>Tema Creado #</h3>
+
       <label for="">Tema:</label>
       <input type="text" name="tema" id="tema" class="" value="<?php echo $tema ?>">
 
@@ -126,15 +161,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="files">
 
         <label for="">Documentos:</label>
-        <input type="file" class="" id="archivo" name="archivo" multiple="" name="archivo">
-
+        <input type="file" class="" id="archivo" name="archivo" name="archivo">
 
         <label for="">Imagenes:</label>
-        <input type="file" class="" id="imagen" name="imagen" multiple="" name="imagen">
+        <input type="file" class="" id="imagen" name="imagen" name="imagen">
 
       </div>
 
-      <label for="">Fecha de Envio</label>
+      <label for="">Fecha de Envio:</label>
       <input type=" text" disabled name="fecha" value="<?php echo $fecha ?>">
 
       <input type="submit" value="Enviar Datos" class="btn">

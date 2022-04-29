@@ -16,7 +16,7 @@
         <nav>
             <div class="enlaces">
                 <a href="/">Inicio</a>
-                <a href="includes/templates/android.php">Android</a>
+                <a href="includes/templates/seleccion.php">Android</a>
                 <a href="">Programacion</a>
                 <a href="">Arduino</a>
                 <a href="">Microelectronica</a>
@@ -35,12 +35,7 @@
                     <a href="">Avatar</a>
                 </div>
             </div>
-            <!-- <div class="menu">
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </label>
-            </div> -->
+
         </nav>
     </header>
     <script src="https://kit.fontawesome.com/04730c9c8a.js" crossorigin="anonymous"></script>

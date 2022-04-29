@@ -2,7 +2,7 @@
 
 function conectarDB(): mysqli //renortanos mysqli
 {
-    $db = mysqli_connect('localhost', 'root', '', 'movilsource');
+    $db = mysqli_connect('localhost', 'root', '', 'blog');
 
     if (!$db) {
         echo 'No se pudo conectar';

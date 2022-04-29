@@ -10,7 +10,6 @@ include_once("../../includes/templates/header.php");
     <a class=" btn" href="AndroidTemas.php">Ir a Temas</a>
       <a class="btn" href="FormCreatePost.php">Crear Tema</a>
 
-
   </div>
 
 
