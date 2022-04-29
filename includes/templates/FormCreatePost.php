@@ -171,7 +171,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label for="">Fecha de Envio:</label>
       <input type=" text" disabled name="fecha" value="<?php echo $fecha ?>">
 
-      <input type="submit" value="Enviar Datos" class="btn">
+      <input type="submit" value="Enviar Datos" class="btn correct">
     </fieldset>
 
 

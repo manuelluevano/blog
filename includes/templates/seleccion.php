@@ -7,8 +7,8 @@ include_once("../../includes/templates/header.php");
   <div class="contenedor">
 
     <h2 ">Todo acerca de Android</h2>
-    <a class=" btn" href="AndroidTemas.php">Ir a Temas</a>
-      <a class="btn" href="FormCreatePost.php">Crear Tema</a>
+    <a class=" btn info" href="AndroidTemas.php">Ir a Temas</a>
+      <a class="btn info" href="FormCreatePost.php">Crear Tema</a>
 
   </div>
 

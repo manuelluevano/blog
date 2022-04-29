@@ -1,3 +1,61 @@
 .contenedor{
     text-align: center;
 }
+
+// DISENO TEMAS CREADOS EN ANDROID
+.temas{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 5rem;
+    // :hover{
+    //     transition: all .2s ease-out; 
+    //     cursor: pointer;
+    //     background-color: rgba(226, 226, 226, 1);
+    // }
+    .tema{
+        -webkit-box-shadow: 1px 1px 15px 3px rgba(0,0,0,0.46); 
+        box-shadow: 1px 1px 15px 3px rgba(0,0,0,0.46);        
+        padding: 2rem;
+
+        .footer{
+            display: grid;
+
+        }
+        h4{
+            color: white;
+
+        }
+        p{
+            font-size: 1.8rem;
+            margin: 2rem 0;
+        }
+    }
+
+    }
+
+.tituloImagen{
+    position: relative;
+    display: inline-block;
+
+    img{
+        height: 200px;
+        width: 300px;
+    }
+    .img:before {
+        content:'';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(24, 23, 23, 0.7);
+    }
+
+    .centrado{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

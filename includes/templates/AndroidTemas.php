@@ -8,10 +8,12 @@ $db = conectarDB();
 
 // ESCRIBIR EL QUERY DE INFO
 $query = "SELECT * FROM info";
+$query2 = "SELECT * FROM imagenes";
 
 
 // CONSULTAR LA BASE DE DATOS
 $resultado = mysqli_query($db, $query);
+$resultado2 = mysqli_query($db, $query2);
 
 
 
@@ -29,13 +31,37 @@ $resultado = mysqli_query($db, $query);
 
 <body>
 
-    <h2>Temas: </h2>
+    <h2 class="centrar">Temas</h2>
+    <div class="temas contenedor">
 
-    <?php
-    while ($info = mysqli_fetch_assoc($resultado)) : ?>
-        <h4><?php echo $info['tema'] ?></h4>
-        <a href="view.php?id=<?php echo $info['id'] ?>">Ver</a>
-    <?php endwhile; ?>
+
+
+        <?php
+        while ($info = mysqli_fetch_assoc($resultado)) : ?>
+            <div class="tema">
+
+                <div class="tituloImagen">
+                    <div class="img">
+
+                        <!-- insertamos las imagenes de la otra tabla  -->
+                        <?php $info2 = mysqli_fetch_assoc($resultado2)  ?>
+
+                        <img src="/imagenes/<?php echo $info2['imagen'] ?>" alt="">
+
+                    </div>
+                    <div class="centrado">
+                        <h4><?php echo $info['tema'] ?></h4>
+                    </div>
+                </div>
+
+
+                <div class="footer">
+                    <p><?php echo substr($info['descripcion'], 0, 50) . '...' ?></p>
+                    <a class="btn info" href="view.php?id=<?php echo $info['id'] ?>">Ver Mas</a>
+                </div>
+            </div>
+        <?php endwhile; ?>
+    </div>
 
 </body>
 

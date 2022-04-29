@@ -31,24 +31,32 @@ $resultado3 = mysqli_query($db, $query3);
 </head>
 
 <body>
+    <div class="contenedor view">
 
-    <?php foreach ($resultado as $r) : ?>
-        <div class="contenedor">
+        <?php foreach ($resultado as $r) : ?>
+            <div class="encabezado">
+                <p>Creacion post: <?php echo $r['fecha'] ?></p>
+            </div>
             <h2><?php echo $r['tema'] ?></h2>
             <p><?php echo $r['descripcion'] ?></p>
+        <?php endforeach; ?>
+
+        <div class="documentos">
+
+            <?php foreach ($resultado2 as $r2) : ?>
+                <img src="/imagenes/<?php echo $r2['imagen'] ?>" alt="NO HAY IMAGEN">
+            <?php endforeach; ?>
+
+            <?php foreach ($resultado3 as $r3) : ?>
+
+                <a href="/documentos/<?php echo $r3['documento'] ?>" download=""><i class="fa fa-file-text" aria-hidden="true">
+                        <p>Ver Documentos</p>
+                    </i>
+                </a>
+            <?php endforeach; ?>
+
         </div>
-    <?php endforeach; ?>
-
-
-    <?php foreach ($resultado2 as $r2) : ?>
-        <img src="/imagenes/<?php echo $r2['imagen'] ?>" alt="">
-    <?php endforeach; ?>
-
-    <?php foreach ($resultado3 as $r3) : ?>
-
-        <a href="/documentos/<?php echo $r3['documento'] ?>" download="">Download Documents</a>
-    <?php endforeach; ?>
-
+    </div>
 
 </body>
 
