@@ -99,9 +99,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nombreDocumento = $archivo['name'];
 
+    $var = 'info';
 
     //  INSETAR EN LA BASE DE DATOS LA INFORMACION
-    $query = "INSERT INTO info (tema, descripcion, fecha, seccion) VALUES ('$tema', '$descripcion','$fecha', '$seccion')";
+    $query = "INSERT INTO $var (tema, descripcion, fecha, seccion) VALUES ('$tema', '$descripcion','$fecha', '$seccion')";
 
     // INSERTAR A LA BASE DE DATOS LOS DOCUENTOS
     $queryDocumentos = "INSERT INTO documentos (documento) VALUES ('$nombreDocumento')";

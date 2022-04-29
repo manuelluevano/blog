@@ -39,6 +39,7 @@ $resultado3 = mysqli_query($db, $query3);
             </div>
             <h2><?php echo $r['tema'] ?></h2>
             <p><?php echo $r['descripcion'] ?></p>
+
         <?php endforeach; ?>
 
         <div class="documentos">

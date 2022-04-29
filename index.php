@@ -1,12 +1,15 @@
 <?php
 include_once("includes/templates/header.php");
 
+require "includes/config/database.php";
+$db = conectarDB();
 
 $resultado = $_GET['resultado'] ?? '';
 
 ?>
 
 <main>
+
 
 
   <?php

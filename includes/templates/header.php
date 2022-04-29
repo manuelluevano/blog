@@ -17,17 +17,8 @@
         <nav>
             <div class="enlaces">
                 <a href="/">Inicio</a>
-                <a href="includes/templates/seleccion.php">Android</a>
-                <a href="">Programacion</a>
-                <a href="">Arduino</a>
-                <a href="">Microelectronica</a>
-                <a href="">Ingles</a>
-                <a href="">Rasperry</a>
-                <a href="">Libros</a>
-                <a href="">Hacking</a>
-                <a href="">Docker</a>
-                <a href="">Politica</a>
-                <a href="">Criptomonedas</a>
+                <a href="includes/templates/android.php">Android</a>
+
             </div>
             <div class="login">
                 <a href="">Login</a>
