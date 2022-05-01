@@ -157,14 +157,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <input type="text" name="tema" id="tema" class="" value="<?php echo $tema ?>">
 
       <label for="">Descripcion:</label>
-      <textarea name="descripcion" id="descripcion" cols="30" rows="10" class=""><?php echo $descripcion ?></textarea>
+      <textarea name="descripcion" id="mytextarea" cols="30" rows="10" class=""><?php echo $descripcion ?></textarea>
 
       <div class="files">
 
-        <label for="">Documentos:</label>
+        <label for="">Documentos (WORD, EXCEL, PDF):</label>
         <input type="file" class="" id="archivo" name="archivo" name="archivo">
 
-        <label for="">Imagenes:</label>
+        <label for="">Imagen Portada</label>
         <input type="file" class="" id="imagen" name="imagen" name="imagen">
 
       </div>
@@ -174,6 +174,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <input type="submit" value="Enviar Datos" class="btn correct">
     </fieldset>
+
+
 
 
   </form>
