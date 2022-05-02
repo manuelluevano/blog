@@ -14,9 +14,6 @@ $query3 = "SELECT * FROM documentos WHERE id = " . $_GET['id'];
 
 // CONSULTAR LA BASE DE DATOS
 $resultado = mysqli_query($db, $query);
-$resultado2 = mysqli_query($db, $query2);
-$resultado3 = mysqli_query($db, $query3);
-
 
 ?>
 
@@ -40,23 +37,21 @@ $resultado3 = mysqli_query($db, $query3);
             <h2><?php echo $r['tema'] ?></h2>
             <p><?php echo $r['descripcion'] ?></p>
 
-        <?php endforeach; ?>
 
-        <div class="documentos">
+            <h3>Portada y Documentos</h3>
 
-            <?php foreach ($resultado2 as $r2) : ?>
-                <img src="/imagenes/<?php echo $r2['imagen'] ?>" alt="NO HAY IMAGEN">
-            <?php endforeach; ?>
+            <div class="documentos">
 
-            <?php foreach ($resultado3 as $r3) : ?>
+                <img src="/imagenes/<?php echo $r['img'] ?>" alt="NO HAY PORTADA">
 
-                <a href="/documentos/<?php echo $r3['documento'] ?>" download=""><i class="fa fa-file-text" aria-hidden="true">
+                <a href="/documentos/<?php echo $r['documento'] ?>" download=""><i class="fa fa-file-text" aria-hidden="true">
                         <p>Ver Documentos</p>
                     </i>
                 </a>
             <?php endforeach; ?>
 
-        </div>
+
+            </div>
     </div>
 
 </body>

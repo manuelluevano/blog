@@ -102,12 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $var = 'info';
 
     //  INSETAR EN LA BASE DE DATOS LA INFORMACION
-    $query = "INSERT INTO $var (tema, descripcion, fecha, seccion) VALUES ('$tema', '$descripcion','$fecha', '$seccion')";
-
-    // INSERTAR A LA BASE DE DATOS LOS DOCUENTOS
-    $queryDocumentos = "INSERT INTO documentos (documento) VALUES ('$nombreDocumento')";
-    // INSERTAR A LA BASE DE DATOS LAS IMAGENES
-    $queryImagenes = "INSERT INTO imagenes (imagen) VALUES ('$nombreImagen')";
+    $query = "INSERT INTO $var (tema, descripcion, fecha, img, documento) VALUES ('$tema', '$descripcion','$fecha', '$nombreImagen', '$nombreDocumento')";
 
 
     // probar el query
@@ -117,13 +112,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $resultado = mysqli_query($db, $query);
-    $resultadoDocumentos = mysqli_query($db, $queryDocumentos);
-    $resultadoImagenes = mysqli_query($db, $queryImagenes);
 
     // exit;
 
 
-    if ($resultado && $resultadoImagenes && $resultadoDocumentos) {
+    if ($resultado) {
 
 
       // redireccionar

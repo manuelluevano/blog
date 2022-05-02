@@ -8,12 +8,10 @@ $db = conectarDB();
 
 // ESCRIBIR EL QUERY DE INFO
 $query = "SELECT * FROM info";
-$query2 = "SELECT * FROM imagenes";
 
 
 // CONSULTAR LA BASE DE DATOS
 $resultado = mysqli_query($db, $query);
-$resultado2 = mysqli_query($db, $query2);
 
 
 
@@ -43,10 +41,7 @@ $resultado2 = mysqli_query($db, $query2);
                 <div class="tituloImagen">
                     <div class="img">
 
-                        <!-- insertamos las imagenes de la otra tabla  -->
-                        <?php $info2 = mysqli_fetch_assoc($resultado2)  ?>
-
-                        <img src="/imagenes/<?php echo $info2['imagen'] ?>" alt="">
+                        <img src="/imagenes/<?php echo $info['img'] ?>" alt="">
 
                     </div>
                     <div class="centrado">
@@ -57,7 +52,7 @@ $resultado2 = mysqli_query($db, $query2);
 
                 <div class="footer">
                     <p><?php echo substr($info['descripcion'], 0, 50) . '...' ?></p>
-                    <a class="btn info" href="view.php?id=<?php echo $info['id'] ?>">Ver Mas</a>
+                    <a class="btn info btn-large" href="view.php?id=<?php echo $info['id'] ?>">Ver Mas</a>
                 </div>
             </div>
         <?php endwhile; ?>
