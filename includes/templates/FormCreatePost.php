@@ -1,6 +1,27 @@
 <?php
 include_once("../../includes/templates/header.php");
 
+
+// si la session no existe, la iniciamoss
+if (!isset($_SESSION)) {
+
+  // incluir las funciones
+  require 'funciones.php';
+
+  // autentica usuario
+  $auth = usuaioAutenticado();
+}
+
+
+if (!$auth) {
+  header('Location: /login.php');
+}
+
+
+
+$usuaio = $_SESSION['usuario'];
+$username = $_SESSION['username'];
+
 //  incluir la conexion a la base de datos 
 require "../config/database.php";
 $db = conectarDB();
@@ -17,10 +38,18 @@ $errores = [];
 // variables globales 
 $tema = '';
 $descripcion = '';
-// Obteniendo la fecha actual con hora, minutos y segundos en PHP
-$fecha = date('Y-m-d');
 $seccion = '';
 
+// Obteniendo la fecha actual con hora, minutos y segundos en PHP
+$fecha = date('Y-m-d');
+
+// CONSULTA, OBTENER LOS TEMAS CREADOS
+$queryTemas = "SELECT * FROM temas";
+$resultadoTemas = mysqli_query($db, $queryTemas);
+
+// obtener el id de los temas creados
+$query2 = "SELECT COUNT(id) AS id FROM info";
+$resultadoId = mysqli_query($db, $query2);
 
 
 // validar entrada de datos
@@ -33,7 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $descripcion = mysqli_real_escape_string($db, $_POST['descripcion']);
 
+  $seccion = mysqli_real_escape_string($db, $_POST['seccion']);
+  // echo "<pre>";
+  // var_dump($_POST);
+  // echo "</pre>";
 
+  // exit;
 
   // $archivo = $_FILES['archivo']['tmp_name'];
   $imagen = $_FILES['imagen'];
@@ -41,14 +75,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-  echo "<pre>";
-  var_dump($archivo);
-  echo "</pre>";
+  // echo "<pre>";
+  // var_dump($archivo);
+  // echo "</pre>";
 
 
-  echo "<pre>";
-  var_dump($imagen);
-  echo "</pre>";
+  // echo "<pre>";
+  // var_dump($imagen);
+  // echo "</pre>";
 
 
   //validar formualrio
@@ -57,6 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
   if (!$descripcion) {
     $errores[] = "Descripcion obligatoria";
+  }
+  if ($seccion == "Select") {
+    $errores[] = "Seccion obligatoria";
   }
 
 
@@ -102,14 +139,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $var = 'info';
 
     //  INSETAR EN LA BASE DE DATOS LA INFORMACION
-    $query = "INSERT INTO $var (tema, descripcion, fecha, img, documento) VALUES ('$tema', '$descripcion','$fecha', '$nombreImagen', '$nombreDocumento')";
+    $query = "INSERT INTO $var (tema, descripcion, fecha, img, documento, seccion) VALUES ('$tema', '$descripcion','$fecha', '$nombreImagen', '$nombreDocumento', '$seccion')";
 
 
     // probar el query
-    // echo $query;
-
-    // echo $queryImagenes;
-
+    echo $query;
+    // exit;
 
     $resultado = mysqli_query($db, $query);
 
@@ -133,6 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="/" class="btn">Regresar</a>
   </div>
 
+
   <?php foreach ($errores as $error) : ?>
     <div class="error">
       <?php echo $error ?>
@@ -144,7 +180,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <fieldset>
 
-      <h3>Tema Creado #</h3>
+      <?php foreach ($resultadoId as $r) : ?>
+        <h3>Tema Creado #: <?php echo $r['id'] ?> </h3>
+      <?php endforeach; ?>
+
+
+      <label for="">Usuario:</label>
+      <input disabled type="info" name="user" id="tema" value="<?php echo $username ?>">
+
 
       <label for="">Tema:</label>
       <input type="text" name="tema" id="tema" class="" value="<?php echo $tema ?>">
@@ -164,6 +207,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <label for="">Fecha de Envio:</label>
       <input type=" text" disabled name="fecha" value="<?php echo $fecha ?>">
+
+      <label for="">Seccion:</label>
+      <select name="seccion" id="">
+        <?php foreach ($resultadoTemas as $temas) : ?>
+          <option><?php echo $temas['tema'] ?></option>
+        <?php endforeach; ?>
+      </select>
 
       <input type="submit" value="Enviar Datos" class="btn correct">
     </fieldset>

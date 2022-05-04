@@ -6,11 +6,32 @@ $db = conectarDB();
 
 $resultado = $_GET['resultado'] ?? '';
 
+
+// si la session no existe, la iniciamoss
+if (!isset($_SESSION)) {
+  // incluir las funciones
+  require 'includes/templates/funciones.php';
+  // autentica usuario
+  $auth = usuaioAutenticado();
+}
+
+
 ?>
 
 <main>
 
+  <div class="contenedor padding">
 
+
+    <?php if (!$auth) : ?>
+      <a class="btn info" href="login.php">Iniciar Sesion</a>
+    <?php endif; ?>
+    <?php if ($auth) : ?>
+
+      <a class="btn info" href="includes/templates/FormCreatePost.php">Crear Tema</a>
+    <?php endif; ?>
+
+  </div>
 
   <?php
   if ($resultado === '1') : ?>

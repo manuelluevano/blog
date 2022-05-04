@@ -32,7 +32,8 @@ $resultado = mysqli_query($db, $query);
 
         <?php foreach ($resultado as $r) : ?>
             <div class="encabezado">
-                <p>Creacion post: <?php echo $r['fecha'] ?></p>
+                <p>Creacion post: <span><?php echo $r['fecha'] ?></span></p>
+                <p>Seccion: <span> <?php echo $r['seccion'] ?> </span></p>
             </div>
             <h2><?php echo $r['tema'] ?></h2>
             <p><?php echo $r['descripcion'] ?></p>
@@ -45,7 +46,7 @@ $resultado = mysqli_query($db, $query);
                 <img src="/imagenes/<?php echo $r['img'] ?>" alt="NO HAY PORTADA">
 
                 <a href="/documentos/<?php echo $r['documento'] ?>" download=""><i class="fa fa-file-text" aria-hidden="true">
-                        <p>Ver Documentos</p>
+                        <p>Ver Documento</p>
                     </i>
                 </a>
             <?php endforeach; ?>

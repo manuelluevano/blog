@@ -1,35 +1,53 @@
 nav{
     display: grid;
-    grid-template-columns: 75% 20% 0%;
+    grid-template-columns: 80% 20%;
     gap: 2rem;
     text-align: center;
-    background-color: #212529;
+    background-color: #000000;
     padding: 2rem;
+    align-items: center;
     .enlaces{
-        display: grid;
-        grid-template-columns: repeat(12,1fr);
-        
+        text-align: left;
         a{
-            font-size: 1.6rem;
+            margin: 0 1rem 0 0 ; 
+            font-size: 1.8rem;
             color: rgb(200, 200, 200);
             border-bottom: 1px solid transparent;
-            margin-bottom: -1.5rem;
+            padding-bottom: 2rem;
         }
         :hover{
             color: white;
             border-bottom: 1.5px solid rgb(255, 255, 255);
-            transition: all ease-out .3s;
+            transition: all ease-out .4s;
+
         }
     }
     .login{
         display: grid;
-        grid-template-columns: repeat(3,1fr);
+        align-items: center;
+        grid-template-columns: repeat(4,1fr);
+        
         a{
             font-size: 1.8rem;
             color: white;
 
         }
+        .sing-in{
+            color: rgb(223, 104, 0);
+        }
+    
+        .avatar{
+            img{
+                border-radius: 5rem;
+                display: inline;
+                Width: 30%;
+                border-bottom: 1px solid transparent;
+                
+            }
+        }
+    } 
     }
+
     .menu{
         color: white;
         font-size: 2rem;
@@ -40,5 +58,5 @@ nav{
             // display: none;
         }
     }
-}
+
 

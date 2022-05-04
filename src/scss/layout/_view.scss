@@ -1,8 +1,12 @@
 .view{
     .encabezado{
         text-align: left;
-        color: rgb(2, 2, 147);
+        p{
+            span{
+                color: rgb(4, 129, 0);
 
+            }
+        }
     }
     p{
         font-size: 1.8rem;
@@ -11,6 +15,7 @@
         img{
             width: 50%;
             height: auto;
+            margin: 0 auto;
         }
     }
     
@@ -22,6 +27,7 @@
     align-items: center;
     grid-template-columns: 80% 20%;
     display: grid;
+    // imagen de la portada
     img{
         width: 20%;
     }

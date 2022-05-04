@@ -51,7 +51,7 @@ $resultado = mysqli_query($db, $query);
 
 
                 <div class="footer">
-                    <p><?php echo substr($info['descripcion'], 0, 50) . '...' ?></p>
+                    <p><?php echo substr($info['descripcion'], 0, 100) . '...' ?></p>
                     <a class="btn info btn-large" href="view.php?id=<?php echo $info['id'] ?>">Ver Mas</a>
                 </div>
             </div>
